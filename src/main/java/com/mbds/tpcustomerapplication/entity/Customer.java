@@ -19,7 +19,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
 /**
- *
+ * Instance de classe Customer.
  * @author Rotsy
  */
 @Entity

@@ -22,7 +22,7 @@ import java.math.BigDecimal;
 import java.util.Collection;
 
 /**
- *
+ *Instance de classe Discount
  * @author Rotsy
  */
 @Entity

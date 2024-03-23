@@ -21,7 +21,7 @@ import java.io.Serializable;
 import java.util.Collection;
 
 /**
- *
+ * Instance de classe MicroMarket
  * @author Rotsy
  */
 @Entity
