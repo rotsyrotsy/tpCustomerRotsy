@@ -4,7 +4,9 @@
  */
 package com.mbds.tpcustomerapplication.entity;
 
-import jakarta.persistence.Basic;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Collection;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,21 +15,13 @@ import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
-import jakarta.xml.bind.annotation.XmlRootElement;
-import jakarta.xml.bind.annotation.XmlTransient;
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.Collection;
 
 /**
  *Instance de classe Discount
  * @author Rotsy
  */
 @Entity
-@Table(name = "discount")
-@XmlRootElement
+@Table(name = "DISCOUNT")
 @NamedQueries({
     @NamedQuery(name = "Discount.findAll", query = "SELECT d FROM Discount d"),
     @NamedQuery(name = "Discount.findByCode", query = "SELECT d FROM Discount d WHERE d.code = :code"),
@@ -36,12 +30,8 @@ public class Discount implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 1)
     @Column(name = "CODE")
     private String code;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "RATE")
     private BigDecimal rate;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "discount")
@@ -70,7 +60,6 @@ public class Discount implements Serializable {
         this.rate = rate;
     }
 
-    @XmlTransient
     public Collection<Customer> getCustomerCollection() {
         return customerCollection;
     }
