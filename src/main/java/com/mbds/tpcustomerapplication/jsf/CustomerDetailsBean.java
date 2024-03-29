@@ -19,7 +19,7 @@ import java.util.List;
  *
  * @author Rotsy
  */
-@Named(value = "customerDetailsBean")
+@Named
 @ViewScoped
 public class CustomerDetailsBean implements Serializable {
 

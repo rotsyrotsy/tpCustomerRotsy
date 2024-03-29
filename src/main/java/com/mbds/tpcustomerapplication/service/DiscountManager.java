@@ -18,7 +18,8 @@ import java.util.List;
  */
 @RequestScoped
 public class DiscountManager {
-    @PersistenceContext(unitName = "customerPU")
+
+    @PersistenceContext
     private EntityManager em;
 
     public List<Discount> getAllDiscounts() {
@@ -26,7 +27,13 @@ public class DiscountManager {
         return query.getResultList();
     }
 
+    @Transactional
+    public Discount update(Discount discount) {
+        return em.merge(discount);
+    }
+
     public Discount findById(String code) {
         return em.find(Discount.class, code);
     }
+    
 }
